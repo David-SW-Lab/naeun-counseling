@@ -17,6 +17,7 @@
     --ink:#2b2b26;
     --muted:#6b6b60;
     --line:#e6e0d2;
+    --gold:#b8912f;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -39,6 +40,7 @@
     background:rgba(250,246,239,0.9);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
+    border-top:3px solid var(--gold);
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
@@ -78,7 +80,7 @@
     background:rgba(93,114,99,0.08); padding:6px 14px; border-radius:100px;
     margin-bottom:24px;
   }
-  .eyebrow::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--terracotta); }
+  .eyebrow::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
   .hero h1{
     font-size:46px; line-height:1.35; font-weight:700; color:var(--ink);
     margin-bottom:22px; letter-spacing:-0.01em;
@@ -88,6 +90,13 @@
     font-size:17px; color:var(--muted); max-width:480px; margin-bottom:36px;
   }
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .verse{
+    margin-top:32px; max-width:420px;
+    font-family:'Noto Serif KR',serif; font-style:italic;
+    font-size:14.5px; line-height:1.6; color:var(--muted);
+    border-left:2px solid var(--gold); padding-left:16px;
+  }
+  .verse cite{ display:block; margin-top:6px; font-style:normal; font-size:12.5px; font-weight:600; color:var(--gold); }
   .btn-primary{
     background:var(--terracotta); color:#fff; text-decoration:none;
     padding:16px 30px; border-radius:100px; font-weight:600; font-size:15px;
@@ -117,15 +126,26 @@
     display:flex; align-items:center; gap:10px;
     font-size:13px; font-weight:600; color:var(--sage-dark);
   }
-  .badge-cert .dot{ width:34px; height:34px; border-radius:50%; background:var(--sage); flex:none;
+  .badge-cert .dot{ width:34px; height:34px; border-radius:50%; background:var(--gold); flex:none;
     display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; }
+  .badge-response{
+    position:absolute; top:-18px; left:-18px;
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:16px; padding:14px 18px;
+    box-shadow:0 14px 30px -12px rgba(43,43,38,0.2);
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; font-weight:600; color:var(--terracotta);
+  }
+  .badge-response .dot{ width:34px; height:34px; border-radius:50%; background:var(--terracotta); flex:none;
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; }
+  .hero-photo-frame svg{ display:block; width:100%; height:100%; }
 
   /* SECTION SHARED */
   section{ padding:96px 0; }
   .section-head{ max-width:600px; margin-bottom:56px; }
   .tag{
     font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--terracotta); margin-bottom:14px; display:block;
+    color:var(--gold); margin-bottom:14px; display:block;
   }
   .section-head h2{ font-size:32px; color:var(--ink); margin-bottom:14px; letter-spacing:-0.01em; }
   .section-head p{ color:var(--muted); font-size:16px; }
@@ -209,6 +229,7 @@
   }
   .blog-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -20px rgba(43,43,38,0.2); }
   .blog-thumb{ aspect-ratio:16/10; }
+  .blog-thumb svg{ display:block; width:100%; height:100%; }
   .blog-body{ padding:22px 22px 24px; }
   .blog-cat{ font-size:12px; font-weight:700; color:var(--sage-dark); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px; display:block; }
   .blog-card h3{ font-size:17px; margin-bottom:10px; line-height:1.5; }
@@ -254,17 +275,41 @@
 <section class="hero" data-screen-label="Hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">청소년 심리상담 전문</span>
+      <span class="eyebrow">기독교 상담 · 청소년 심리상담 전문</span>
       <h1>혼자 견디지 않아도 <em>괜찮아요.</em><br>함께 이야기해요.</h1>
       <p class="lead">이나은 상담사가 청소년과 학부모, 학교 현장의 고민을 듣습니다. 자격을 갖춘 전문가와 편안하게, 필요한 만큼만 이야기 나눠보세요.</p>
       <div class="hero-actions">
         <a href="#booking" class="btn-primary">상담 예약하기</a>
         <a href="#about" class="btn-ghost">상담사 소개 보기</a>
       </div>
+      <p class="verse">"여호와는 마음이 상한 자를 가까이 하시고 충심으로 통회하는 자를 구원하시는도다"<cite>— 시편 34:18</cite></p>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <image-slot id="hero-photo" shape="rect" placeholder="상담사 사진을 넣어주세요" src="uploads/pasted-1783761968226-0.png"></image-slot>
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3f5344"/>
+              <stop offset="100%" stop-color="#c1633d"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#heroBg)"/>
+          <g stroke="#fffdf8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
+            <path d="M60,268 L100,268" opacity="0.55"/>
+            <path d="M50,298 L95,298" opacity="0.4"/>
+            <path d="M65,238 L102,238" opacity="0.7"/>
+            <circle cx="150" cy="198" r="16" fill="#fffdf8" stroke="none"/>
+            <path d="M150,216 L165,263 L138,308"/>
+            <path d="M165,263 L202,248"/>
+            <path d="M138,308 L116,348"/>
+            <path d="M165,263 L192,298"/>
+            <path d="M280,258 C280,222 322,212 337,238 C352,212 394,222 394,258 C394,300 337,336 337,336 C337,336 280,300 280,258 Z" fill="#fffdf8" stroke="none" opacity="0.92"/>
+          </g>
+        </svg>
+      </div>
+      <div class="badge-response">
+        <span class="dot">🏃</span>
+        연락 주시면<br>바로 달려갈게요
       </div>
       <div class="badge-cert">
         <span class="dot">✓</span>
@@ -277,7 +322,7 @@
 <section id="about" data-screen-label="About">
   <div class="wrap about-grid">
     <div class="about-photo">
-      <image-slot id="about-photo" shape="rect" placeholder="프로필 사진" src="uploads/pasted-1783761968226-0.png"></image-slot>
+      <image-slot id="about-photo" shape="rect" placeholder="프로필 사진" src="uploads/counselor-about.jpg"></image-slot>
     </div>
     <div>
       <span class="tag">상담사 소개</span>
@@ -291,15 +336,15 @@
       <ul class="cred-list">
         <li>
           <span class="ic">🎓</span>
-          <div><b>학력</b><span class="sub">중앙대학교 대학원 상담학과 석사과정</span></div>
+          <div><b>학력</b><span class="sub">감리신학대학교 졸업 · 중앙대학교 대학원 청소년학과 석사 졸업</span></div>
         </li>
         <li>
           <span class="ic">📜</span>
-          <div><b>자격증</b><span class="sub">청소년상담사 2급 · 청소년상담복지사 · 심리상담사 1급 외 다수</span></div>
+          <div><b>자격증</b><span class="sub">청소년지도사 1급 · 청소년상담사 2급</span></div>
         </li>
         <li>
           <span class="ic">🏢</span>
-          <div><b>경력</b><span class="sub">청소년상담복지센터 상담원 · 학교 밖 청소년 지원센터 상담 활동 다수</span></div>
+          <div><b>경력</b><span class="sub">강서구청소년상담복지센터 · 청소년 관련 종사경력 8년(그 중 청소년상담 경력 5년)</span></div>
         </li>
         <li>
           <span class="ic">📚</span>
@@ -401,7 +446,26 @@
     </div>
     <div class="blog-grid">
       <div class="blog-card">
-        <div class="blog-thumb"><image-slot id="blog-1" shape="rect" placeholder="칼럼 이미지"></image-slot></div>
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5d7263"/>
+                <stop offset="100%" stop-color="#8fa898"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#bg1)"/>
+            <g transform="translate(200,125)" fill="none" stroke="#faf6ef" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+              <path d="M-55,-38 C-55,-45 -48,-50 -40,-50 L-5,-50 L-5,42 L-40,42 C-48,42 -55,37 -55,30 Z"/>
+              <path d="M55,-38 C55,-45 48,-50 40,-50 L5,-50 L5,42 L40,42 C48,42 55,37 55,30 Z"/>
+              <line x1="0" y1="-50" x2="0" y2="42"/>
+              <line x1="-40" y1="-32" x2="-16" y2="-32" stroke-width="2.5"/>
+              <line x1="-40" y1="-16" x2="-16" y2="-16" stroke-width="2.5"/>
+              <line x1="16" y1="-32" x2="40" y2="-32" stroke-width="2.5"/>
+              <line x1="16" y1="-16" x2="40" y2="-16" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
         <div class="blog-body">
           <span class="blog-cat">학업 · 진로</span>
           <h3>시험 스트레스, 아이에게 어떻게 말해줘야 할까요</h3>
@@ -410,7 +474,23 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-thumb"><image-slot id="blog-2" shape="rect" placeholder="칼럼 이미지"></image-slot></div>
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c1633d"/>
+                <stop offset="100%" stop-color="#dd9470"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#bg2)"/>
+            <g transform="translate(200,125)" fill="none" stroke="#fffdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+              <rect x="-72" y="-46" width="88" height="58" rx="16"/>
+              <path d="M-48,12 L-56,30 L-28,12"/>
+              <rect x="-16" y="-14" width="88" height="58" rx="16" opacity="0.85"/>
+              <path d="M28,44 L36,62 L64,44"/>
+            </g>
+          </svg>
+        </div>
         <div class="blog-body">
           <span class="blog-cat">관계</span>
           <h3>친구 문제로 힘들어하는 아이, 이렇게 다가가 보세요</h3>
@@ -419,7 +499,21 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-thumb"><image-slot id="blog-3" shape="rect" placeholder="칼럼 이미지"></image-slot></div>
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#b8912f"/>
+                <stop offset="100%" stop-color="#e0c374"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#bg3)"/>
+            <g transform="translate(200,125)" fill="none" stroke="#fffdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+              <path d="M0,45 C-62,0 -50,-52 -12,-42 C-4,-40 0,-32 0,-32 C0,-32 4,-40 12,-42 C50,-52 62,0 0,45 Z"/>
+              <path d="M-34,-4 L-16,-4 L-8,-20 L2,12 L10,-4 L34,-4" stroke-width="3"/>
+            </g>
+          </svg>
+        </div>
         <div class="blog-body">
           <span class="blog-cat">정서</span>
           <h3>아이의 감정 기복, 그냥 사춘기가 아닐 수도 있어요</h3>
