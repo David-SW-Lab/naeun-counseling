@@ -127,16 +127,6 @@
   }
   .badge-cert .dot{ width:34px; height:34px; border-radius:50%; background:var(--gold); flex:none;
     display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; }
-  .badge-response{
-    position:absolute; top:-18px; left:-18px;
-    background:var(--paper); border:1px solid var(--line);
-    border-radius:16px; padding:14px 18px;
-    box-shadow:0 14px 30px -12px rgba(43,43,38,0.2);
-    display:flex; align-items:center; gap:10px;
-    font-size:13px; font-weight:600; color:var(--terracotta);
-  }
-  .badge-response .dot{ width:34px; height:34px; border-radius:50%; background:var(--terracotta); flex:none;
-    display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; }
   .hero-photo-frame svg{ display:block; width:100%; height:100%; }
 
   /* SECTION SHARED */
@@ -204,9 +194,6 @@
   }
   .booking-panel h3{ color:var(--ink); font-size:22px; margin-bottom:10px; }
   .booking-panel p{ color:var(--muted); font-size:15px; margin-bottom:24px; }
-  .contact-row{ display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:15px; color:var(--ink); }
-  .contact-row .ic{ width:36px; height:36px; border-radius:50%; background:rgba(193,99,61,0.12); color:var(--terracotta);
-    display:flex; align-items:center; justify-content:center; font-size:16px; flex:none; }
 
   form.book-form{ display:flex; flex-direction:column; gap:14px; }
   form.book-form input, form.book-form select, form.book-form textarea{
@@ -275,7 +262,7 @@
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">기독교 상담 · 청소년 심리상담 전문</span>
-      <h1>혼자 견디지 않아도 <em>괜찮아요.</em><br>함께 이야기해요.</h1>
+      <h1>혼자 견디지 않아도<br><em>괜찮아요.</em><br>함께 이야기해요.</h1>
       <p class="lead">이나은 상담사가 청소년과 학부모, 학교 현장의 고민을 듣습니다. 자격을 갖춘 전문가와 편안하게, 필요한 만큼만 이야기 나눠보세요.</p>
       <div class="hero-actions">
         <a href="#booking" class="btn-primary">상담 예약하기</a>
@@ -305,10 +292,6 @@
             <path d="M280,258 C280,222 322,212 337,238 C352,212 394,222 394,258 C394,300 337,336 337,336 C337,336 280,300 280,258 Z" fill="#fffdf8" stroke="none" opacity="0.92"/>
           </g>
         </svg>
-      </div>
-      <div class="badge-response">
-        <span class="dot">🏃</span>
-        연락 주시면<br>바로 달려갈게요
       </div>
       <div class="badge-cert">
         <span class="dot">✓</span>
@@ -414,10 +397,6 @@
       <div>
         <h3>지금 바로 문의하세요</h3>
         <p>아래 양식에 이름과 연락처를 남겨주시면, 문자로 바로 전달되어 확인 후 연락드릴게요.</p>
-        <div class="contact-row"><span class="ic">📞</span> 연락처 입력 예정</div>
-        <div class="contact-row"><span class="ic">💬</span> 카카오톡 채널 입력 예정</div>
-        <div class="contact-row"><span class="ic">✉️</span> 이메일 입력 예정</div>
-        <div class="contact-row"><span class="ic">📍</span> 상담 위치/센터명 입력 예정</div>
       </div>
       <form class="book-form" id="book-form">
         <input type="text" name="name" placeholder="이름" required>
@@ -539,19 +518,12 @@
           <a href="#booking">상담 신청</a>
           <a href="#blog">칼럼</a>
         </div>
-        <div>
-          <h4>연락처</h4>
-          <a href="tel:#">전화 입력 예정</a>
-          <a href="#">카카오톡 채널</a>
-          <a href="/cdn-cgi/l/email-protection#e1c2">이메일 입력 예정</a>
-        </div>
       </div>
     </div>
     <div class="copyright">© 2026 이나은 상담센터. All rights reserved.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
 (function(){
   var form = document.getElementById('book-form');
