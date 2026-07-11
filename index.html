@@ -6,7 +6,6 @@
 <title>이나은 청소년 상담센터</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="image-slot.js"></script>
 <style>
   :root{
     --sage:#5d7263;
@@ -322,7 +321,7 @@
 <section id="about" data-screen-label="About">
   <div class="wrap about-grid">
     <div class="about-photo">
-      <image-slot id="about-photo" shape="rect" placeholder="프로필 사진" src="uploads/counselor-about.jpg"></image-slot>
+      <img src="uploads/counselor-about.jpg" alt="이나은 상담사" style="width:100%;height:100%;object-fit:cover;display:block">
     </div>
     <div>
       <span class="tag">상담사 소개</span>
@@ -414,23 +413,23 @@
     <div class="booking-panel">
       <div>
         <h3>지금 바로 문의하세요</h3>
-        <p>전화, 카카오톡, 이메일 어떤 방법이든 편하게 연락 주세요.</p>
+        <p>아래 양식에 이름과 연락처를 남겨주시면, 문자로 바로 전달되어 확인 후 연락드릴게요.</p>
         <div class="contact-row"><span class="ic">📞</span> 연락처 입력 예정</div>
         <div class="contact-row"><span class="ic">💬</span> 카카오톡 채널 입력 예정</div>
         <div class="contact-row"><span class="ic">✉️</span> 이메일 입력 예정</div>
         <div class="contact-row"><span class="ic">📍</span> 상담 위치/센터명 입력 예정</div>
       </div>
-      <form class="book-form" onsubmit="event.preventDefault(); this.reset(); alert('신청이 접수되었습니다. 곧 연락드릴게요.');">
-        <input type="text" placeholder="이름" required>
-        <input type="tel" placeholder="연락처" required>
-        <select>
-          <option>신청자 구분을 선택해주세요</option>
+      <form class="book-form" id="book-form">
+        <input type="text" name="name" placeholder="이름" required>
+        <input type="tel" name="phone" placeholder="연락처" required>
+        <select name="role">
+          <option value="">신청자 구분을 선택해주세요</option>
           <option>청소년 본인</option>
           <option>학부모</option>
           <option>학교/교사</option>
           <option>기관 담당자</option>
         </select>
-        <textarea placeholder="상담받고 싶은 내용을 간단히 적어주세요"></textarea>
+        <textarea name="message" placeholder="상담받고 싶은 내용을 간단히 적어주세요"></textarea>
         <button type="submit">상담 신청하기</button>
       </form>
     </div>
@@ -552,5 +551,25 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+(function(){
+  var form = document.getElementById('book-form');
+  var TARGET_PHONE = '01065616138';
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var role = form.role.value || '미선택';
+    var message = form.message.value.trim() || '없음';
+    var body = '[상담 신청]\n이름: ' + name + '\n연락처: ' + phone + '\n구분: ' + role + '\n내용: ' + message;
+    var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
+    var sep = isIOS ? '&' : '?';
+    var smsUrl = 'sms:' + TARGET_PHONE + sep + 'body=' + encodeURIComponent(body);
+    window.location.href = smsUrl;
+    form.reset();
+  });
+})();
+</script>
+</body>
 </html>
