@@ -25,6 +25,8 @@
     background:var(--cream);
     color:var(--ink);
     line-height:1.7;
+    word-break:keep-all;
+    overflow-wrap:break-word;
   }
   h1,h2,h3,.serif{ font-family:'Noto Serif KR', serif; }
 
@@ -234,6 +236,17 @@
   .outcome-card h3{ font-size:17px; margin-bottom:10px; }
   .outcome-card p{ color:var(--muted); font-size:14px; line-height:1.7; }
 
+  /* REVIEWS */
+  #reviews{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .review-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:18px;
+    padding:30px 26px 24px; position:relative;
+  }
+  .review-quote-mark{ font-family:'Noto Serif KR',serif; font-size:44px; color:var(--gold); line-height:1; margin-bottom:8px; opacity:0.55; }
+  .review-card p{ font-family:'Noto Serif KR',serif; font-style:italic; font-size:15px; line-height:1.7; color:var(--ink); margin-bottom:16px; }
+  .review-card .who{ font-size:12.5px; font-weight:600; color:var(--sage-dark); }
+
   /* MEDIA */
   #media{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .media-wrap{ max-width:720px; margin:0 auto; }
@@ -302,7 +315,7 @@
 
   @media (max-width:860px){
     .hero-grid, .about-grid, .booking-panel{ grid-template-columns:1fr; }
-    .spec-grid, .blog-grid, .history-grid, .outreach-grid, .outcome-grid{ grid-template-columns:1fr; }
+    .spec-grid, .blog-grid, .history-grid, .outreach-grid, .outcome-grid, .review-grid{ grid-template-columns:1fr; }
     .cert-row{ grid-template-columns:1fr 1fr; }
     .history-card-wide{ grid-column:span 1; }
     .steps{ grid-template-columns:1fr 1fr; }
@@ -320,6 +333,7 @@
       <li><a href="#about">상담사 소개</a></li>
       <li><a href="#outreach">찾아가는 상담</a></li>
       <li><a href="#specialty">상담 분야</a></li>
+      <li><a href="#reviews">후기</a></li>
       <li><a href="#booking">예약 안내</a></li>
       <li><a href="#blog">칼럼</a></li>
       <li><a href="#contact">연락처</a></li>
@@ -328,7 +342,7 @@
   </nav>
 </header>
 
-<section class="hero" data-screen-label="Hero">
+<section class="hero">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">기독교 상담 · 청소년 심리상담 전문</span>
@@ -371,7 +385,7 @@
   </div>
 </section>
 
-<section id="about" data-screen-label="About">
+<section id="about">
   <div class="wrap about-grid">
     <div class="about-photo">
       <img src="uploads/counselor-about.jpg" alt="이나은 상담사" style="width:100%;height:100%;object-fit:cover;display:block">
@@ -407,7 +421,7 @@
   </div>
 </section>
 
-<section id="history" data-screen-label="History">
+<section id="history">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">전문성</span>
@@ -477,7 +491,7 @@
   </div>
 </section>
 
-<section id="outreach" data-screen-label="Outreach">
+<section id="outreach">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">상담 방식</span>
@@ -504,7 +518,7 @@
   </div>
 </section>
 
-<section id="specialty" data-screen-label="Specialties">
+<section id="specialty">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">상담 분야</span>
@@ -546,7 +560,7 @@
   </div>
 </section>
 
-<section id="outcomes" data-screen-label="Outcomes">
+<section id="outcomes">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">상담 경험</span>
@@ -578,7 +592,49 @@
   </div>
 </section>
 
-<section id="media" data-screen-label="Media">
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">후기</span>
+      <h2>상담을 마친 분들이 전한 이야기</h2>
+      <p>동의를 얻어 실제로 전달받은 메시지 일부를 소개합니다.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>그때는 정말 하루하루가 무섭고 막막했는데, 이나은 선생님을 만나고 나서 아이가 조금씩 웃기 시작했어요. 덕분에 우리 아이가 살 수 있었습니다. 진심으로 감사합니다.</p>
+        <div class="who">학부모</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>이나은 선생님... 그때 제 얘기를 끝까지 들어주셔서 감사했어요. 덕분에 저 이제 그 클럽에서 완전히 나올 수 있었어요. 정말 감사합니다.</p>
+        <div class="who">내담자</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>혼자 다 참기만 했었는데, 이나은 선생님과 이야기하면서 제 마음을 어떻게 표현해야 할지 조금씩 알게 됐어요. 이제는 친구관계를 어떻게 만들어가야 할지 알 것 같아요.</p>
+        <div class="who">내담자</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>한동안 학교 가는 게 너무 힘들어서 계속 못 갔었는데, 이나은 선생님이랑 이야기하고 나서 조금씩 마음이 편해졌어요. 저 이제 학교 갑니다.</p>
+        <div class="who">내담자</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>학교로 돌아가는 것만이 답이 아니라, 제 속도대로 하면 된다고 해주셔서 힘이 났어요. 저 검정고시 준비 해보기로 했어요.</p>
+        <div class="who">내담자</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote-mark">"</div>
+        <p>예전엔 제 미래에 대해 생각하는 것조차 싫었는데, 이제는 조금씩 계획도 세우고 대학 준비도 하고 있어요. 감사합니다, 선생님.</p>
+        <div class="who">내담자</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="media">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">인터뷰</span>
@@ -594,7 +650,7 @@
   </div>
 </section>
 
-<section id="booking" data-screen-label="Booking">
+<section id="booking">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">상담 진행 절차</span>
@@ -630,7 +686,7 @@
   </div>
 </section>
 
-<section id="blog" data-screen-label="Blog">
+<section id="blog">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">블로그 · 칼럼</span>
@@ -718,7 +774,7 @@
   </div>
 </section>
 
-<footer id="contact" data-screen-label="Footer">
+<footer id="contact">
   <div class="wrap">
     <div class="foot-grid">
       <div>
@@ -731,6 +787,7 @@
           <a href="#about">상담사 소개</a>
           <a href="#outreach">찾아가는 상담</a>
           <a href="#specialty">상담 분야</a>
+          <a href="#reviews">후기</a>
           <a href="#booking">상담 신청</a>
           <a href="#blog">칼럼</a>
         </div>
