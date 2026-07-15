@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>이나은 청소년 상담센터</title>
+<title>더나은 청소년 상담센터</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -174,6 +174,73 @@
   .spec-card h3{ font-size:19px; margin-bottom:10px; }
   .spec-card p{ color:var(--muted); font-size:14.5px; }
 
+  /* HISTORY */
+  #history{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+  .cert-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px; }
+  .cert-chip{
+    position:relative; background:var(--sage-dark); color:#fff; border-radius:16px;
+    padding:22px 20px 18px; display:flex; flex-direction:column; gap:4px;
+    box-shadow:0 14px 30px -14px rgba(43,43,38,0.35);
+  }
+  .cert-chip b{ font-size:15.5px; font-weight:700; padding-right:44px; }
+  .cert-chip span{ font-size:12.5px; color:rgba(255,255,255,0.65); }
+  .cert-year{
+    position:absolute; top:16px; right:18px; font-size:11px; font-weight:700;
+    color:#e9c7a9; letter-spacing:0.03em;
+  }
+
+  .history-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .history-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:16px; padding:24px 22px;
+  }
+  .history-card-wide{ grid-column:span 2; }
+  .history-head{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .history-ic{
+    width:32px; height:32px; border-radius:9px; background:rgba(93,114,99,0.12);
+    display:flex; align-items:center; justify-content:center; font-size:15px; flex:none;
+  }
+  .history-card h3{ font-size:14.5px; color:var(--sage-dark); font-family:'Pretendard'; font-weight:700; }
+  .history-card ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .history-card li{ border-top:1px solid var(--line); padding-top:12px; }
+  .history-card li:first-child{ border-top:none; padding-top:0; }
+  .history-card li b{ display:block; font-size:13.5px; color:var(--ink); font-weight:600; line-height:1.5; margin-bottom:3px; }
+  .history-card li span{ font-size:12px; color:var(--muted); }
+
+  /* OUTREACH */
+  .outreach-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .outreach-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:20px;
+    padding:32px 26px; text-align:center; transition:transform .2s, box-shadow .2s;
+  }
+  .outreach-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -20px rgba(43,43,38,0.2); }
+  .outreach-icon{
+    width:52px; height:52px; border-radius:14px; background:rgba(184,145,47,0.14);
+    display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 18px;
+  }
+  .outreach-card h3{ font-size:17px; margin-bottom:10px; }
+  .outreach-card p{ color:var(--muted); font-size:14px; }
+
+  /* OUTCOMES */
+  .outcome-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .outcome-card{
+    background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--terracotta);
+    border-radius:16px; padding:28px 26px;
+  }
+  .outcome-card:nth-child(2){ border-left-color:var(--sage-dark); }
+  .outcome-card:nth-child(3){ border-left-color:var(--gold); }
+  .outcome-card:nth-child(4){ border-left-color:var(--sage); }
+  .outcome-icon{ font-size:24px; margin-bottom:14px; }
+  .outcome-card h3{ font-size:17px; margin-bottom:10px; }
+  .outcome-card p{ color:var(--muted); font-size:14px; line-height:1.7; }
+
+  /* MEDIA */
+  #media{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .media-wrap{ max-width:720px; margin:0 auto; }
+  .media-embed{ position:relative; width:100%; aspect-ratio:16/9; border-radius:20px; overflow:hidden; box-shadow:0 20px 40px -18px rgba(43,43,38,0.2); }
+  .media-embed iframe{ width:100%; height:100%; border:0; display:block; }
+  .media-caption{ margin-top:16px; text-align:center; color:var(--muted); font-size:14px; }
+
   /* PROCESS / BOOKING */
   #booking{ background:var(--sage-dark); color:#fff; }
   #booking .section-head h2, #booking .section-head p{ color:#fff; }
@@ -235,7 +302,9 @@
 
   @media (max-width:860px){
     .hero-grid, .about-grid, .booking-panel{ grid-template-columns:1fr; }
-    .spec-grid, .blog-grid{ grid-template-columns:1fr; }
+    .spec-grid, .blog-grid, .history-grid, .outreach-grid, .outcome-grid{ grid-template-columns:1fr; }
+    .cert-row{ grid-template-columns:1fr 1fr; }
+    .history-card-wide{ grid-column:span 1; }
     .steps{ grid-template-columns:1fr 1fr; }
     .navlinks{ display:none; }
     .hero h1{ font-size:32px; }
@@ -246,9 +315,10 @@
 
 <header>
   <nav class="wrap">
-    <div class="brand">이나은 <span>상담센터</span></div>
+    <div class="brand">더나은 <span>상담센터</span></div>
     <ul class="navlinks">
       <li><a href="#about">상담사 소개</a></li>
+      <li><a href="#outreach">찾아가는 상담</a></li>
       <li><a href="#specialty">상담 분야</a></li>
       <li><a href="#booking">예약 안내</a></li>
       <li><a href="#blog">칼럼</a></li>
@@ -318,21 +388,118 @@
       <ul class="cred-list">
         <li>
           <span class="ic">🎓</span>
-          <div><b>학력</b><span class="sub">감리신학대학교 졸업 · 중앙대학교 대학원 청소년학과 석사 졸업</span></div>
-        </li>
-        <li>
-          <span class="ic">📜</span>
-          <div><b>자격증</b><span class="sub">청소년지도사 1급 · 청소년상담사 2급</span></div>
+          <div><b>학력</b><span class="sub">감리신학대학교 졸업 · 중앙대학교 일반대학원 아동청소년학과 석사 졸업(2018)</span></div>
         </li>
         <li>
           <span class="ic">🏢</span>
-          <div><b>경력</b><span class="sub">강서구청소년상담복지센터 · 청소년 관련 종사경력 8년(그 중 청소년상담 경력 5년)</span></div>
+          <div><b>경력</b><span class="sub">전) 강서구청소년상담복지센터 청소년동반자 전일제 상담사 · 전) 영등포구청소년상담복지센터 전문상담사 · 전) 중구학교밖청소년지원센터 담당자</span></div>
+        </li>
+        <li>
+          <span class="ic">📜</span>
+          <div><b>자격증</b><span class="sub">청소년상담사 1급 · 청소년지도사 1급 · 임상심리사 2급 · 미술상담사 2급</span></div>
         </li>
         <li>
           <span class="ic">📚</span>
-          <div><b>전문 분야</b><span class="sub">청소년 정서·행동, 또래관계, 진로 상담</span></div>
+          <div><b>전문 분야</b><span class="sub">청소년 비행 · 학교폭력 피해 트라우마 · 자해 및 자살위기 · 자녀 양육 상담</span></div>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section id="history" data-screen-label="History">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">전문성</span>
+      <h2>이나은 상담사의 이력</h2>
+      <p>다양한 현장 경험과 전문 교육을 바탕으로 상담을 진행합니다.</p>
+    </div>
+
+    <div class="cert-row">
+      <div class="cert-chip">
+        <span class="cert-year">2027</span>
+        <b>청소년상담사 1급</b>
+        <span>여성가족부</span>
+      </div>
+      <div class="cert-chip">
+        <span class="cert-year">2024</span>
+        <b>청소년지도사 1급</b>
+        <span>여성가족부</span>
+      </div>
+      <div class="cert-chip">
+        <span class="cert-year">2026</span>
+        <b>임상심리사 2급</b>
+        <span>한국산업인력공단</span>
+      </div>
+      <div class="cert-chip">
+        <span class="cert-year">2024</span>
+        <b>미술상담사 2급</b>
+        <span>(사)한국청소년심리상담협회</span>
+      </div>
+    </div>
+
+    <div class="history-grid">
+      <div class="history-card">
+        <div class="history-head"><span class="history-ic">🧭</span><h3>전문성 훈련</h3></div>
+        <ul>
+          <li><b>게슈탈트그룹전문가</b><span>게슈탈트미디어 · 2025</span></li>
+        </ul>
+      </div>
+      <div class="history-card">
+        <div class="history-head"><span class="history-ic">🏛️</span><h3>소속학회</h3></div>
+        <ul>
+          <li><b>한국상담학회</b><span>정회원</span></li>
+          <li><b>한국상담심리학회</b><span>정회원</span></li>
+          <li><b>한국게슈탈트심리상담학회</b><span>정회원</span></li>
+        </ul>
+      </div>
+      <div class="history-card">
+        <div class="history-head"><span class="history-ic">🎤</span><h3>강의</h3></div>
+        <ul>
+          <li><b>동물매개치료 위드햅 청소년지도자 교육</b><span>2019</span></li>
+        </ul>
+      </div>
+      <div class="history-card">
+        <div class="history-head"><span class="history-ic">👥</span><h3>집단상담 운영</h3></div>
+        <ul>
+          <li><b>소울브릿지 대안학교 의사소통집단상담</b><span>2022</span></li>
+          <li><b>관악고 · 선유중 솔리언또래집단상담</b><span>2023</span></li>
+        </ul>
+      </div>
+      <div class="history-card history-card-wide">
+        <div class="history-head"><span class="history-ic">📄</span><h3>연구</h3></div>
+        <ul>
+          <li><b>청소년 또래압력이 또래동조성에 미치는 영향: 자기성찰지능을 중심으로</b><span>중앙대학교 · 2018</span></li>
+          <li><b>서울시 어린이·청소년 인권가이드라인</b><span>청소년교육전략21 · 2018</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="outreach" data-screen-label="Outreach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">상담 방식</span>
+      <h2>센터로 오시기 어렵다면, 제가 찾아갑니다</h2>
+      <p>아이를 데리고 센터까지 오는 일이 쉽지 않다는 걸 잘 알고 있습니다. 서울 지역을 중심으로, 편한 장소와 방식으로 상담을 진행해요.</p>
+    </div>
+    <div class="outreach-grid">
+      <div class="outreach-card">
+        <div class="outreach-icon">🚗</div>
+        <h3>방문(모바일) 상담</h3>
+        <p>학교, 가정 등 편한 장소로 직접 찾아가 상담을 진행합니다.</p>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-icon">☕</div>
+        <h3>스터디카페 · 공유오피스</h3>
+        <p>서울 지역 스터디카페나 공유오피스를 빌려 편안하게 상담을 진행해요.</p>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-icon">💻</div>
+        <h3>전화 · 온라인 상담</h3>
+        <p>이동이 어려운 경우 전화나 화상으로도 상담이 가능합니다.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -375,6 +542,54 @@
         <h3>학교 적응</h3>
         <p>등교 거부, 학교 부적응 등 학교생활 전반의 어려움을 지원합니다.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="outcomes" data-screen-label="Outcomes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">상담 경험</span>
+      <h2>이런 순간들을 함께 지나왔습니다</h2>
+      <p>특정 사례를 밝히긴 어렵지만, 상담 현장에서 자주 마주하고 함께 이겨낸 어려움들입니다.</p>
+    </div>
+    <div class="outcome-grid">
+      <div class="outcome-card">
+        <div class="outcome-icon">🌱</div>
+        <h3>무기력, 그리고 다시 찾은 이유</h3>
+        <p>삶의 의욕을 잃고 힘들어하던 청소년이 상담을 통해 자신을 지킬 이유를 다시 찾아가는 과정을 함께합니다.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🤝</div>
+        <h3>폭력이 아닌 다른 방법으로</h3>
+        <p>다툼과 폭력적인 상황에 놓였던 청소년이 감정을 다르게 표현하고 관계를 회복해가도록 돕습니다.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🏫</div>
+        <h3>다시, 학교로</h3>
+        <p>등교를 거부하던 아이가 상담을 통해 조금씩 다시 학교와 일상으로 돌아가는 경우를 자주 만납니다.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">💛</div>
+        <h3>부모님의 마음도 함께</h3>
+        <p>자녀를 지켜보며 지쳐있던 보호자분들도 상담을 통해 위로와 구체적인 방향을 얻어가십니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="media" data-screen-label="Media">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">인터뷰</span>
+      <h2>미디어에 소개된 이나은 상담사</h2>
+      <p>청소년 아웃리치 현장에서 진행된 인터뷰입니다.</p>
+    </div>
+    <div class="media-wrap">
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/4Wtk2JUJMCM" title="코로나 시대를 살아가는 청소년 - 이나은 상담 소개" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="media-caption">우리모해 아웃리치 중 만난 청소년 인터뷰 — "코로나 시대를 살아가는 청소년"</p>
     </div>
   </div>
 </section>
@@ -507,20 +722,21 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand-foot">이나은 상담센터</div>
+        <div class="brand-foot">더나은 상담센터</div>
         <p>청소년과 가족의 마음을 함께 돌보는 상담 공간입니다.</p>
       </div>
       <div class="foot-links">
         <div>
           <h4>바로가기</h4>
           <a href="#about">상담사 소개</a>
+          <a href="#outreach">찾아가는 상담</a>
           <a href="#specialty">상담 분야</a>
           <a href="#booking">상담 신청</a>
           <a href="#blog">칼럼</a>
         </div>
       </div>
     </div>
-    <div class="copyright">© 2026 이나은 상담센터. All rights reserved.</div>
+    <div class="copyright">© 2026 더나은 상담센터. All rights reserved.</div>
   </div>
 </footer>
 
